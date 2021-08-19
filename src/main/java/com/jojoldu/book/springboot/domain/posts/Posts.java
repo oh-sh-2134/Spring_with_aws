@@ -1,5 +1,6 @@
-package com.jojoldu.book.springboot.domain.pasts;
+package com.jojoldu.book.springboot.domain.posts;
 
+import com.jojoldu.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 // 롬북의 어노테이션
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor// 기본 생성자 자동 생성 -> public Posts(){} 같음
 @Entity // JAP 어노테이션 , 테이블과 링크될 클래스임을 나타냄
-public class Posts {
+public class Posts extends BaseTimeEntity { //BaseTimeEntity를 상속받음으로써 해당클래스의 필드가 칼럼으로 인식되어 Entity 생성 수정에 시간 기록됨
 
     @Id // 해당 테이블의 PK테이블 필드를 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK의 생성 규칙

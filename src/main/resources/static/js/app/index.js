@@ -7,6 +7,22 @@ var main = {
         },
         save : function(){
             var data = {
-            title : $('title').var(),
-            author}}
+            title : $('#title').var(),
+            author : $('#author').var(),
+            content : $('#content').var()
+            };
+
+            $.ajax({
+                type : 'POST',
+                url : '/api/v1/posts',
+                dataType : 'json',
+                contentType : 'application/json; charset=urf-8',
+                data : JSON.stringify(data)
+                }).done(function() {
+                    alert('글이 등록되었습니다.');
+                    window.location.href = '/';
+                }).fail(function(error){
+                    alert(JSON.stringify(error));
+                });
         }
+}
